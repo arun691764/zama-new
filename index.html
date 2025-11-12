@@ -6,32 +6,41 @@
 <title>Zama Creator Program — Season 4</title>
 <style>
 :root{
-  --bg1:#04102a; --bg2:#071233; --accent1:#00d4ff; --accent2:#7c3aed; --muted:#9aa4b2;
+  --bg1:#04102a; --bg2:#071233; --accent1:#00d4ff; --accent2:#7c3aed;
   --opt1:#ff6b6b; --opt2:#4ecdc4; --opt3:#f7b801; --opt4:#9b5de5;
-  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --card-bg:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#fff; display:flex;justify-content:center;padding:28px}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#fff;
+  display:flex;justify-content:center;padding:28px;
+}
 .wrap{max-width:600px;width:100%;display:flex;flex-direction:column;gap:18px}
-header{padding:30px;border-radius:16px;text-align:center;box-shadow:0 14px 50px rgba(2,6,23,0.7);border:1px solid rgba(255,255,255,0.03); background:radial-gradient(800px 240px at 10% 10%, rgba(0,212,255,0.06), transparent), linear-gradient(180deg, rgba(124,58,237,0.06), rgba(7,18,51,0.6));}
+header{
+  padding:30px;border-radius:16px;text-align:center;
+  box-shadow:0 14px 50px rgba(2,6,23,0.7);
+  border:1px solid rgba(255,255,255,0.03);
+  background:radial-gradient(800px 240px at 10% 10%,rgba(0,212,255,0.06),transparent),
+             linear-gradient(180deg,rgba(124,58,237,0.06),rgba(7,18,51,0.6));
+}
 h1{font-size:44px;color:var(--accent1);margin:0;font-weight:800;text-shadow:0 12px 48px rgba(0,212,255,0.10)}
 .credit{margin-top:8px;color:#cfe9ff;font-weight:700;font-size:14px}
 .sub{
-  font-size:22px;
-  color:#000;
-  margin-top:14px;
-  font-weight:900;
+  font-size:22px;color:#000;margin-top:14px;font-weight:900;
   background:linear-gradient(90deg,#ffe259,#ffcc00);
-  padding:12px 18px;
-  border-radius:12px;
-  display:inline-block;
-  text-shadow:none;
-  box-shadow:0 4px 18px rgba(255,204,0,0.4);
+  padding:12px 18px;border-radius:12px;display:inline-block;
+  text-shadow:none;box-shadow:0 4px 18px rgba(255,204,0,0.4);
 }
 .card{background:var(--card-bg);padding:20px;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.02)}
-.question{font-size:18px;font-weight:800;padding:14px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));}
+.question{font-size:18px;font-weight:800;padding:14px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.01),rgba(0,0,0,0.02));}
 .options{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-button.opt{padding:14px 16px;border-radius:12px;border:none;font-weight:800;font-size:15px;cursor:pointer;color:#001;transition:0.12s;background:none}
+button.opt{
+  padding:14px 16px;border-radius:12px;border:none;font-weight:800;font-size:15px;
+  cursor:pointer;color:#001;transition:0.12s;background:none
+}
 button.opt:nth-child(1){background:linear-gradient(90deg,var(--opt1),#ff8b8b)}
 button.opt:nth-child(2){background:linear-gradient(90deg,var(--opt2),#76efe6)}
 button.opt:nth-child(3){background:linear-gradient(90deg,var(--opt3),#ffd76a)}
@@ -46,23 +55,21 @@ button.opt:disabled{opacity:0.9;cursor:default;transform:none}
 .score{font-size:22px;font-weight:900;color:var(--accent1)}
 .trophy{font-size:76px;margin-top:6px}
 .small{
-  font-size:15px;
-  color:#000;
-  text-align:center;
+  font-size:15px;color:#000;text-align:center;
   background:linear-gradient(90deg,#ffe259,#ffcc00);
-  padding:12px;
-  border-radius:12px;
-  margin-top:10px;
-  font-weight:900;
-  box-shadow:0 4px 18px rgba(255,204,0,0.4);
+  padding:12px;border-radius:12px;margin-top:10px;
+  font-weight:900;box-shadow:0 4px 18px rgba(255,204,0,0.4);
 }
+.contribute{background:linear-gradient(180deg,rgba(124,58,237,0.06),rgba(0,212,255,0.03));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);max-width:580px;text-align:left}
+.contribute h3{color:var(--accent1);margin-bottom:6px}
+.contribute ol{padding-left:20px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>Welcome to Zama</h1>
-    <div class="credit">Zama Creator Program — Season 4</div>
+    <div class="credit">Created by — <a href="https://twitter.com/AmitKum955" target="_blank" style="color:#00d4ff;text-decoration:none">@AmitKum955</a></div>
     <div class="sub">Play &amp; Solve — <strong>Understand how to contribute 100% to the Zama Protocol in a real way.</strong></div>
     <div id="welcomeDashboard" style="margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:12px;">
       <button id="startBtn" class="next" style="font-size:20px;padding:16px 28px;">Start Quiz</button>
@@ -81,16 +88,124 @@ button.opt:disabled{opacity:0.9;cursor:default;transform:none}
     <div class="resultCard" id="resultContent"></div>
   </section>
 </div>
+
 <script>
-const QUESTIONS=[{q:"What is the main focus of Zama's cryptography work?",opts:["Fully Homomorphic Encryption (FHE)","Zero Knowledge Proofs","Blockchain bridges","NFT security"],correctIndex:0},{q:"Which open-source library is developed by Zama?",opts:["Concrete","TensorFlow","OpenSSL","LibFHE"],correctIndex:0},{q:"Zama's FHE technology allows what?",opts:["Computation on encrypted data","Faster rendering","Unencrypted messaging","Data duplication"],correctIndex:0},{q:"Zama supports developers through which initiative?",opts:["Creator Program","Mining Program","Airdrop Program","Liquidity Program"],correctIndex:0},{q:"What programming language powers TFHE-rs?",opts:["Rust","Python","Go","C#"],correctIndex:0},{q:"What is one main goal of Zama's mission?",opts:["Privacy for all data","Faster GPUs","AI art generation","Token inflation"],correctIndex:0},{q:"Zama recently announced a Confidential Blockchain Protocol. What does it protect?",opts:["Smart contract data","NFT metadata","Usernames","Passwords only"],correctIndex:0},{q:"Which Zama tool helps with confidential smart contracts?",opts:["FHEVM","OpenAI SDK","DataVault","RustLab"],correctIndex:0},{q:"Zama partners with which ecosystem for confidential DeFi?",opts:["Ethereum","Polygon","Binance","Solana"],correctIndex:0},{q:"Zama encourages contributions via?",opts:["GitHub and documentation improvements","Token staking","Ad campaigns","Private mining"],correctIndex:0}];
-let index=0,score=0;const contentArea=document.getElementById('contentArea');const controls=document.getElementById('controls');const nextBtn=document.getElementById('nextBtn');const progressText=document.getElementById('progressText');const resultCard=document.getElementById('resultCard');const resultContent=document.getElementById('resultContent');const quizCard=document.getElementById('quizCard');
+const QUESTIONS=[
+  {q:"What is the main focus of Zama's cryptography work?",opts:["Fully Homomorphic Encryption (FHE)","Zero Knowledge Proofs","Blockchain bridges","NFT security"],correctIndex:0},
+  {q:"Which open-source library is developed by Zama?",opts:["Concrete","TensorFlow","OpenSSL","LibFHE"],correctIndex:0},
+  {q:"Zama's FHE technology allows what?",opts:["Computation on encrypted data","Faster rendering","Unencrypted messaging","Data duplication"],correctIndex:0},
+  {q:"Zama supports developers through which initiative?",opts:["Creator Program","Mining Program","Airdrop Program","Liquidity Program"],correctIndex:0},
+  {q:"What programming language powers TFHE-rs?",opts:["Rust","Python","Go","C#"],correctIndex:0},
+  {q:"What is one main goal of Zama's mission?",opts:["Privacy for all data","Faster GPUs","AI art generation","Token inflation"],correctIndex:0},
+  {q:"Zama announced a Confidential Blockchain Protocol to protect what?",opts:["Smart contract data","NFT metadata","Usernames","Passwords only"],correctIndex:0},
+  {q:"Which Zama tool helps with confidential smart contracts?",opts:["FHEVM","OpenAI SDK","DataVault","RustLab"],correctIndex:0},
+  {q:"Zama partners with which ecosystem for confidential DeFi?",opts:["Ethereum","Polygon","Binance","Solana"],correctIndex:0},
+  {q:"Zama encourages contributions via?",opts:["GitHub and documentation improvements","Token staking","Ad campaigns","Private mining"],correctIndex:0}
+];
+
+let index=0,score=0;
+const contentArea=document.getElementById('contentArea');
+const controls=document.getElementById('controls');
+const nextBtn=document.getElementById('nextBtn');
+const progressText=document.getElementById('progressText');
+const resultCard=document.getElementById('resultCard');
+const resultContent=document.getElementById('resultContent');
+const quizCard=document.getElementById('quizCard');
+
 function shuffleArray(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
-function renderQuestion(i){const item=QUESTIONS[i];const pairs=item.opts.map((o,idx)=>({text:o,correct:idx===item.correctIndex}));shuffleArray(pairs);contentArea.innerHTML=`<div class='question'><strong>Q${i+1}. ${escapeHtml(item.q)}</strong></div><div class='options' id='opts'></div>`;const optsDiv=document.getElementById('opts');pairs.forEach((p,idx)=>{const b=document.createElement('button');b.className='opt';b.innerHTML=`<span style='font-weight:900'>${String.fromCharCode(65+idx)}.</span> ${escapeHtml(p.text)}`;b.dataset.correct=p.correct?'true':'false';b.onclick=()=>handleAnswer(b);optsDiv.appendChild(b);});controls.style.display='flex';progressText.textContent=`Question ${i+1} / ${QUESTIONS.length}`;nextBtn.style.display='none';}
-function handleAnswer(button){document.querySelectorAll('.opt').forEach(b=>b.disabled=true);const correct=button.dataset.correct==='true';if(correct){button.classList.add('correct');score++;}else{button.classList.add('wrong');const all=Array.from(document.querySelectorAll('.opt'));const correctBtn=all.find(x=>x.dataset.correct==='true');if(correctBtn)correctBtn.classList.add('correct');}nextBtn.style.display='inline-block';nextBtn.textContent=(index===QUESTIONS.length-1)?'Finish':'Next';}
-nextBtn.addEventListener('click',()=>{index++;if(index<QUESTIONS.length){renderQuestion(index);}else{showResults();}});
-function showResults(){quizCard.style.display='none';resultCard.style.display='block';resultContent.innerHTML='';const scoreDiv=document.createElement('div');scoreDiv.className='score';scoreDiv.innerHTML=`Your score: <strong>${score}/${QUESTIONS.length}</strong>`;resultContent.appendChild(scoreDiv);const trophy=document.createElement('div');trophy.className='trophy';trophy.textContent=(score>=7)?'🏆':'🔒';resultContent.appendChild(trophy);const small=document.createElement('div');small.className='small';if(score>=7){small.innerHTML='<strong>You have won this quiz!</strong><br/>Below are steps to contribute to the Zama ecosystem.';resultContent.appendChild(small);}else{small.innerHTML='<strong>Better luck next time!</strong><br/>Try again to unlock contributor guidance.';resultContent.appendChild(small);const tryBtn=document.createElement('button');tryBtn.className='next';tryBtn.textContent='Try Again';tryBtn.onclick=()=>location.reload();resultContent.appendChild(tryBtn);}}
+
+function renderQuestion(i){
+  const item=QUESTIONS[i];
+  const pairs=item.opts.map((o,idx)=>({text:o,correct:idx===item.correctIndex}));
+  shuffleArray(pairs);
+  contentArea.innerHTML=`<div class='question'><strong>Q${i+1}. ${escapeHtml(item.q)}</strong></div><div class='options' id='opts'></div>`;
+  const optsDiv=document.getElementById('opts');
+  pairs.forEach((p,idx)=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.innerHTML=`<span style='font-weight:900'>${String.fromCharCode(65+idx)}.</span> ${escapeHtml(p.text)}`;
+    b.dataset.correct=p.correct?'true':'false';
+    b.onclick=()=>handleAnswer(b);
+    optsDiv.appendChild(b);
+  });
+  controls.style.display='flex';
+  progressText.textContent=`Question ${i+1} / ${QUESTIONS.length}`;
+  nextBtn.style.display='none';
+}
+
+function handleAnswer(button){
+  document.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+  const correct=button.dataset.correct==='true';
+  if(correct){button.classList.add('correct');score++;}
+  else{
+    button.classList.add('wrong');
+    const all=Array.from(document.querySelectorAll('.opt'));
+    const correctBtn=all.find(x=>x.dataset.correct==='true');
+    if(correctBtn)correctBtn.classList.add('correct');
+  }
+  nextBtn.style.display='inline-block';
+  nextBtn.textContent=(index===QUESTIONS.length-1)?'Finish':'Next';
+}
+
+nextBtn.addEventListener('click',()=>{
+  index++;
+  if(index<QUESTIONS.length){renderQuestion(index);}else{showResults();}
+});
+
+function showResults(){
+  quizCard.style.display='none';
+  resultCard.style.display='block';
+  resultContent.innerHTML='';
+
+  const scoreDiv=document.createElement('div');
+  scoreDiv.className='score';
+  scoreDiv.innerHTML=`Your score: <strong>${score}/${QUESTIONS.length}</strong>`;
+  resultContent.appendChild(scoreDiv);
+
+  const trophy=document.createElement('div');
+  trophy.className='trophy';
+  trophy.textContent=(score>=7)?'🏆':'🔒';
+  resultContent.appendChild(trophy);
+
+  const small=document.createElement('div');
+  small.className='small';
+
+  if(score>=7){
+    small.innerHTML='<strong>You have won this quiz!</strong><br/>Here’s how you can start contributing to the Zama ecosystem:';
+    resultContent.appendChild(small);
+
+    const contrib=document.createElement('div');
+    contrib.className='contribute';
+    contrib.innerHTML=`<h3>Contributor Guidance:</h3>
+    <ol>
+      <li>Explore <a href='https://zama.ai/' target='_blank' style='color:#00d4ff;'>Zama’s official docs</a> & blogs.</li>
+      <li>Join the <a href='https://discord.gg/zama' target='_blank' style='color:#00d4ff;'>community</a> & Creator Program.</li>
+      <li>Contribute on GitHub — docs, fixes, or improvements.</li>
+      <li>Publish FHE tutorials or demos for developers.</li>
+      <li>Collaborate & share progress to strengthen privacy tech.</li>
+    </ol>`;
+    resultContent.appendChild(contrib);
+  } else {
+    small.innerHTML='<strong>Better luck next time!</strong><br/>Try again to unlock contributor guidance.';
+    resultContent.appendChild(small);
+  }
+
+  // Back to Start button for both win/loss
+  const backBtn=document.createElement('button');
+  backBtn.className='next';
+  backBtn.textContent='Back to Start';
+  backBtn.onclick=()=>location.reload();
+  resultContent.appendChild(backBtn);
+}
+
 function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-const startBtn=document.getElementById('startBtn');startBtn.addEventListener('click',()=>{document.getElementById('welcomeDashboard').style.display='none';quizCard.style.display='block';renderQuestion(0);});
+
+const startBtn=document.getElementById('startBtn');
+startBtn.addEventListener('click',()=>{
+  document.getElementById('welcomeDashboard').style.display='none';
+  quizCard.style.display='block';
+  renderQuestion(0);
+});
 </script>
 </body>
 </html>
