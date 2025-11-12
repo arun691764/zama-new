@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Zama — Quiz & Contributor Guide</title>
+<style>
+:root{
+  --bg1:#061022;    /* deep navy */
+  --bg2:#081934;    /* deep teal */
+  --accent1:#18d6c6; /* teal accent */
+  --accent2:#ff8a42; /* orange accent for buttons */
+  --muted:#9fb4bf;
+  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --subtitle-bg-start:#00c3b8; /* teal */
+  --subtitle-bg-end:#018f86;
+  --highlight-bg-start:#ffd47a; /* soft yellow for small highlights if needed */
+  --highlight-bg-end:#ffb146;
+}
+/* Reset & base */
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#fff; display:flex; justify-content:center; padding:28px;
+}
+.wrap{max-width:980px;width:100%;display:flex;flex-direction:column;gap:18px}
+
+/* Header */
+header{
+  padding:28px;border-radius:14px;text-align:center;
+  box-shadow:0 14px 50px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(1,24,36,0.5), rgba(3,37,49,0.6));
+}
+h1{font-size:38px;color:var(--accent1);margin:0;font-weight:800;text-shadow:0 8px 28px rgba(0,0,0,0.48)}
+.credit{margin-top:8px;color:#cfe9ff;font-weight:700;font-size:13px}
+
+/* Subtitle - teal background, white bold letters */
+.sub{
+  font-size:20px;
+  color:#fff;
+  margin-top:12px;
+  font-weight:800;
+  background: linear-gradient(90deg,var(--subtitle-bg-start),var(--subtitle-bg-end));
+  padding:12px 18px;
+  border-radius:12px;
+  display:inline-block;
+  box-shadow:0 6px 22px rgba(1,140,134,0.14);
+}
+
+/* Card / quiz UI */
+.card{background:var(--card-bg);padding:20px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.02)}
+.question{font-size:18px;font-weight:800;padding:14px;border-radius:10px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));}
+.options{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+
+/* Option buttons: black text on colored backgrounds for contrast */
+button.opt{
+  padding:14px 16px;border-radius:12px;border:none;font-weight:800;font-size:15px;
+  cursor:pointer;color:#001; transition:0.12s; text-align:left;
+}
+button.opt:nth-child(1){background:linear-gradient(90deg,#ffd6a6,#ffc17a)}
+button.opt:nth-child(2){background:linear-gradient(90deg,#b5f4e8,#7fe6d6)}
+button.opt:nth-child(3){background:linear-gradient(90deg,#ffd1f0,#ffb1e0)}
+button.opt:nth-child(4){background:linear-gradient(90deg,#cfe0ff,#9fc8ff)}
+button.opt:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,0.28)}
+button.opt:disabled{opacity:0.9;cursor:default;transform:none}
+
+/* Correct / wrong visuals */
+.correct{box-shadow:0 8px 24px rgba(16,185,129,0.28)!important;border:2px solid #10b981!important;background:linear-gradient(90deg,#22c55e,#10b981)!important;color:#001}
+.wrong{box-shadow:0 8px 24px rgba(239,68,68,0.28)!important;border:2px solid #ef4444!important;background:linear-gradient(90deg,#fb7185,#ef4444)!important;color:#001}
+
+.controls{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.next{background:linear-gradient(90deg,var(--accent1),var(--accent2));border:none;color:#001;padding:12px 22px;border-radius:12px;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(1,140,134,0.12)}
+
+.resultCard{display:flex;flex-direction:column;gap:12px;align-items:center;padding:22px}
+.score{font-size:20px;font-weight:900;color:var(--accent1)}
+.trophy{font-size:64px;margin-top:6px}
+
+/* Win highlight: using same teal -> orange accent? user asked different colors; use soft yellow for win highlight */
+.small{
+  font-size:15px;
+  color:#001;
+  text-align:center;
+  background: linear-gradient(90deg,var(--highlight-bg-start),var(--highlight-bg-end));
+  padding:12px;
+  border-radius:12px;
+  margin-top:10px;
+  font-weight:900;
+  box-shadow:0 6px 24px rgba(255,181,70,0.16);
+}
+
+/* Contributor block */
+.contribute{background:linear-gradient(180deg, rgba(3,37,49,0.35), rgba(1,24,36,0.22));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);max-width:780px}
+.contribute h3{margin:0 0 8px 0;color:var(--accent1)}
+.contribute ol{padding-left:20px;margin:0}
+.contribute li{margin:8px 0;color:#cfe9ff}
+
+.shareRow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;justify-content:center}
+.btn{padding:10px 14px;border-radius:12px;border:none;cursor:pointer;font-weight:700}
+.shareBtn{background:linear-gradient(90deg,var(--accent2),#ffb46a);color:#001}
+.restartBtn{background:linear-gradient(90deg,#ffd76a,#ffcc00);border:none;color:#001;padding:10px 14px;border-radius:12px;font-weight:800;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Zama — Community Quiz</h1>
+    <div class="credit">Created by - <a href="https://twitter.com/anshulgautam360" target="_blank" rel="noopener noreferrer">@anshulgautam360</a></div>
+    <div class="sub">Play &amp; Learn — Understand Zama, FHE & how to contribute</div>
+  </header>
+
+  <section id="quizCard" class="card">
+    <div id="contentArea"></div>
+    <div class="controls" id="controls" style="display:none">
+      <div class="progress" id="progressText">Question 1/10</div>
+      <button id="nextBtn" class="next">Next</button>
+    </div>
+  </section>
+
+  <section id="resultCard" class="card" style="display:none">
+    <div class="resultCard" id="resultContent"></div>
+  </section>
+</div>
+
+<script>
+/* 10 Zama-related questions (based on zama.org blog & resources) */
+const QUESTIONS = [
+  { q: "What cryptographic technique is Zama primarily known for?", opts:["Fully Homomorphic Encryption (FHE)","Proof-of-work (PoW)","Zero-knowledge proofs (ZKPs)","Federated learning"], correctIndex:0 },
+  { q: "Zama announced a Confidential Blockchain Protocol and released which environment?", opts:["Testnet","Mainnet","Devnet Alpha","Staging"], correctIndex:0 },
+  { q: "Which specialized hardware does Zama discuss for FHE operations?", opts:["HPU (Homomorphic Processing Unit)","GPU","ASIC miners","TPU"], correctIndex:0 },
+  { q: "Which project or toolkit is associated with Zama's FHE libraries?", opts:["Concrete","TensorFlow","OpenSSL","Metamask"], correctIndex:0 },
+  { q: "Zama has partnered with which security firm to bring confidential smart contracts to DeFi?", opts:["OpenZeppelin","Chainalysis","CertiK","Trail of Bits"], correctIndex:0 },
+  { q: "What does the Zama Creator Program encourage?", opts:["Creating educational content and demos","Mining tokens","Running ad campaigns","Selling NFTs"], correctIndex:0 },
+  { q: "Which developer resource does Zama provide for building confidential dApps?", opts:["FHEVM / developer docs","Lightning Network SDK","IPFS tutorials","Solidity-to-Rust converter"], correctIndex:0 },
+  { q: "In Zama's ecosystem, which language/framework has an official library mentioned on the blog?", opts:["TFHE-rs (Rust)","Python-only TF","Java SDK","Go FHE"], correctIndex:0 },
+  { q: "One key benefit of FHE (per Zama) is:", opts:["Computing on encrypted data without decrypting","Faster GPU rendering","Lower gas fees by default","Unlimited storage"], correctIndex:0 },
+  { q: "Zama runs programs to reward builders — what is one example listed?", opts:["Bounty Program / Developer Program","Liquidity mining","Airdrop claim","Staking reward crop"], correctIndex:0 }
+];
+
+let index = 0, score = 0;
+const contentArea = document.getElementById('contentArea');
+const controls = document.getElementById('controls');
+const nextBtn = document.getElementById('nextBtn');
+const progressText = document.getElementById('progressText');
+const resultCard = document.getElementById('resultCard');
+const resultContent = document.getElementById('resultContent');
+const quizCard = document.getElementById('quizCard');
+
+function shuffleArray(arr){
+  for(let i = arr.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function renderQuestion(i){
+  const item = QUESTIONS[i];
+  const pairs = item.opts.map((o, idx) => ({ text: o, correct: idx === item.correctIndex }));
+  shuffleArray(pairs);
+
+  contentArea.innerHTML = `<div class="question"><strong>Q${i+1}. ${escapeHtml(item.q)}</strong></div>
+    <div class="options" id="opts"></div>`;
+
+  const optsDiv = document.getElementById('opts');
+  pairs.forEach((p, idx) => {
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span style="font-weight:900">${String.fromCharCode(65+idx)}.</span> ${escapeHtml(p.text)}`;
+    b.dataset.correct = p.correct ? 'true' : 'false';
+    b.onclick = () => handleAnswer(b);
+    optsDiv.appendChild(b);
+  });
+
+  controls.style.display = 'flex';
+  progressText.textContent = `Question ${i+1} / ${QUESTIONS.length}`;
+  nextBtn.style.display = 'none';
+}
+
+function handleAnswer(button){
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  const correct = button.dataset.correct === 'true';
+  if(correct){
+    button.classList.add('correct');
+    score++;
+  } else {
+    button.classList.add('wrong');
+    const all = Array.from(document.querySelectorAll('.opt'));
+    const correctBtn = all.find(x => x.dataset.correct === 'true');
+    if(correctBtn) correctBtn.classList.add('correct');
+  }
+  nextBtn.style.display = 'inline-block';
+  nextBtn.textContent = (index === QUESTIONS.length - 1) ? 'Finish' : 'Next';
+}
+
+nextBtn.addEventListener('click', () => {
+  index++;
+  if(index < QUESTIONS.length) {
+    renderQuestion(index);
+  } else {
+    showResults();
+  }
+});
+
+function showResults(){
+  quizCard.style.display = 'none';
+  resultCard.style.display = 'block';
+  resultContent.innerHTML = '';
+
+  const scoreDiv = document.createElement('div'); scoreDiv.className = 'score';
+  scoreDiv.innerHTML = `Your score: <strong>${score}/${QUESTIONS.length}</strong>`;
+  resultContent.appendChild(scoreDiv);
+
+  const trophy = document.createElement('div'); trophy.className = 'trophy';
+  trophy.textContent = (score >= 7) ? '🏆' : '🔒';
+  resultContent.appendChild(trophy);
+
+  const small = document.createElement('div'); small.className = 'small';
+  if(score >= 7){
+    small.innerHTML = '<strong>You have won this quiz!</strong><br/>Below are contribution steps and guidance to help you meaningfully contribute to Zama and its ecosystem.';
+    resultContent.appendChild(small);
+
+    const contrib = document.createElement('div'); contrib.className = 'contribute';
+    contrib.innerHTML = `
+      <h3>How to contribute to Zama (step-by-step)</h3>
+      <ol>
+        <li><strong>Read official docs & papers:</strong> Start at docs.zama.ai and Zama's research posts to understand FHE & Zama's protocol.</li>
+        <li><strong>Join community channels:</strong> Follow Zama on X, join Telegram/Discord and the Creator program to network and learn.</li>
+        <li><strong>Experiment locally:</strong> Try TFHE-rs / Concrete examples and run the HPU deep-dive demos to reproduce results.</li>
+        <li><strong>Report issues & benchmarks:</strong> Submit reproducible issues, benchmark scripts and performance notes to GitHub.</li>
+        <li><strong>Contribute code & docs:</strong> Open PRs for examples, SDK improvements (FHEVM), docs and tutorials — small PRs welcome.</li>
+        <li><strong>Create learning content:</strong> Publish guides, videos, and demos (join Creator Program) to help adoption.</li>
+        <li><strong>Participate in programs:</strong> Join Zama's bounties and developer programs to earn recognition and rewards.</li>
+      </ol>
+      <div style="margin-top:10px;color:#cfe9ff;font-weight:700">Consistent, reproducible, and well-documented contributions help you stand out in the Zama community.</div>
+    `;
+    resultContent.appendChild(contrib);
+
+    const row = document.createElement('div'); row.className = 'shareRow';
+    const projectLink = document.createElement('a'); projectLink.href = 'https://www.zama.org/blog'; projectLink.target = '_blank';
+    const projBtn = document.createElement('button'); projBtn.className = 'btn shareBtn'; projBtn.textContent = 'Read Zama Blog';
+    projectLink.appendChild(projBtn); row.appendChild(projectLink);
+
+    const shareBtn = document.createElement('button'); shareBtn.className = 'btn shareBtn'; shareBtn.textContent = '🐦 Share on X';
+    shareBtn.onclick = ()=> { const text = `I completed the Zama quiz and unlocked contributor guidance — join the community: https://www.zama.org/blog`; window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank'); };
+    row.appendChild(shareBtn);
+
+    const restartBtn = document.createElement('button'); restartBtn.className = 'restartBtn'; restartBtn.textContent = 'Restart Quiz';
+    restartBtn.onclick = ()=> location.reload();
+    row.appendChild(restartBtn);
+
+    resultContent.appendChild(row);
+
+  } else {
+    small.innerHTML = '<strong>Better luck next time!</strong><br/>Try again to unlock contributor guidance.';
+    resultContent.appendChild(small);
+
+    const tryBtn = document.createElement('button'); tryBtn.className = 'next'; tryBtn.textContent = 'Try Again';
+    tryBtn.onclick = ()=> location.reload();
+    resultContent.appendChild(tryBtn);
+  }
+}
+
+/* escape helper */
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ensure first question renders on load */
+window.onload = () => { renderQuestion(0); };
+</script>
+</body>
+</html>
